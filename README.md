@@ -16,19 +16,25 @@ If you don't want to use docker, you can set dev environment to your local machi
 
 ### Run
 - Ensure that docker is running, and then in project root dir run:
-```docker-compose up```
-To run containers in detached mode, use `docker-compose up -d`.
-If you want to run only some of the containers, specify containers, for example `docker-compose up backend db``
+```
+docker-compose up
+```
+To run containers in detached mode, use `docker-compose up -d`  
+If you want to run only some of the containers, specify containers, for example `docker-compose up backend db`
 - `docker ps -a` to check which containers are running and in which ports
 - backend is served in `localhost:9000` (example api in `localhost:9000/api/v1/hello/world`)
 - frontend is served in `localhost:8000`
 - db is served localhost:5432
 
 ### Stop containers
-```docker-compose down```
+```
+docker-compose down
+```
 
 ### Remove images
-```docker system prune -a```
+```
+docker system prune -a
+```
 
 ### Remove volumes
 - list volumes `docker volume ls`
@@ -36,11 +42,15 @@ If you want to run only some of the containers, specify containers, for example 
 
 ### Building images
 If you need to build images, you can use (or with --no-cache flag)
-```docker-compose build```
+```
+docker-compose build
+```
 
 ### Access to a docker container
 - to access eg. backend container, run
-```docker-compose exec backend sh```
+```
+docker-compose exec backend sh
+```
 This links the container's bash to your local shell.
 
 
