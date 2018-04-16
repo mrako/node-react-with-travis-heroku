@@ -62,7 +62,8 @@ When project exists in github, you can activate it in Travis CI
 * Create a git branch from where you want travis to build automatically (in this example it is `development`). If you're using some other named branch than development, change branch name in .travis.yml:  
     ```branches:  
          only:  
-         - [your_branch_name]```
+         - [your_branch_name]  
+    ```
 * Push your changes to "build branch", and travis will start the build process. 
 ### Build process
 * Travis builds project according to `.travis.yml` file. There is specified which nodejs version should be used, what other services does it need (docker) and which branch it builds.
