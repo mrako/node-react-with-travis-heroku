@@ -10,6 +10,7 @@ branches:
 before_install:
   - nvm install node  
 script:
+- npm install --prefix backend/
 - npm run lint --prefix backend/
 - docker-compose build --no-cache
 - cd frontend && npm install && npm run build
