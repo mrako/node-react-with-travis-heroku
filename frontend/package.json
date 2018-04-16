@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm install && webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "./node_modules/.bin/eslint --ignore-pattern '/src/dist/' --ext .js --ext .jsx src"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +24,9 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "eslint": "^4.19.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",

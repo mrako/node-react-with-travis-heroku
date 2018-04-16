@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
@@ -41,9 +42,5 @@ db.sequelize.sync = async function sync() {
   console.log('NEW SYNC BEGIN');
 };
 Object.assign(db, models);
-
-/*
-associate
-*/
 
 module.exports = db;
