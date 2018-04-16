@@ -41,7 +41,7 @@ If you need to build images, you can use (or with --no-cache flag)
 ```docker-compose build```
 
 ### Access to a docker container
-- to access eg. backend container, run  
+To access eg. backend container, run  
 ```docker-compose exec backend sh```  
 This links the container's bash to your local shell.
 
