@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-/* eslint-disable-next-line global-require */
+/* eslint-disable-next-line global-require, import/no-extraneous-dependencies */
 if (process.env.NODE_ENV !== 'production') { require('dotenv').config(); }
 const Koa = require('koa');
 const serve = require('koa-static');
