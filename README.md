@@ -76,10 +76,10 @@ When project exists in github, you can activate it in Travis CI
 ```heroku create```  
 * Add generated app name to .travis.yml deploy section
 * Go to [heroku dashboard](https://dashboard.heroku.com/) and add heroku postgres add-on to your heroku app (go to your app -> "resources")  
-    * This will add DATABASE_URL variable ("settings" -> "reveal config vars")
-* Generate token between travis and heroku and add it to .travis.yml (this command does it)  
-```travis encrypt $(heroku auth:token) --add deploy.api_key```  
+    * This will add DATABASE_URL variable to heroku ("settings" -> "reveal config vars")
 * Get your heroku token and set it as HEROKU_TOKEN environment variable in travis (go to your travis repository, "more options" -> "settings" -> "environment variables")  
-```heroku auth:token```
+```heroku auth:token```    
+* Generate encrypted token between travis and heroku and add it to .travis.yml  
+```travis encrypt $(heroku auth:token) --add deploy.api_key```  
 * Add `API_POSTFIX`: `/api/v1` variable to heroku ("settings" -> "reveal config vars") so that backend requests are routed correctly
 
