@@ -5,7 +5,7 @@ const hello = () => async (ctx) => {
   ctx.body = 'Hello World from backend';
 };
 const router = new Router()
-  .get('/world', hello(db));
+  .get('/world', hello());
 
 module.exports = {
   router,
