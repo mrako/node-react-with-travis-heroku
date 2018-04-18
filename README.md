@@ -9,7 +9,7 @@ If you don't want to use docker, you can set dev environment to your local machi
 * [nodejs](https://nodejs.org/)
 * ([psql](https://www.postgresql.org/) if you don't want to run app in docker)
 * [travis CLI](https://github.com/travis-ci/travis.rb)
-* [heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+* [heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and [heroku account](https://signup.heroku.com/login)
 
 ## Set up development environment
 - Copy template to your local machine. You can, for example, download or clone and set new remote.
@@ -70,5 +70,16 @@ When project exists in github, you can activate it in Travis CI
 * Travis builds project according to `.travis.yml` file. There is specified which nodejs version should be used, what other services does it need (docker) and which branch it builds.
 * `script` -phase defines what should be done in travis. In this example project, it runs ESLint for backend, builds project with docker-compose and prepares frontend bundle for heroku deployment. If eslint detects errors (or any other phase fails), build fails and app will not be deployed.
 
-## Deploying to Heroku
+## Preparation for Heroku deployment
+* Go to project root dir and create heroku app  
+```heroku login```  
+```heroku create```  
+* Add generated app name to .travis.yml deploy section
+* Go to [heroku dashboard](https://dashboard.heroku.com/) and add heroku postgres add-on to your heroku app (go to your app -> "resources")  
+    * This will add DATABASE_URL variable ("settings" -> "reveal config vars")
+* Generate token between travis and heroku and add it to .travis.yml (this command does it)  
+```travis encrypt $(heroku auth:token) --add deploy.api_key```  
+* Get your heroku token and set it as HEROKU_TOKEN environment variable in travis (go to your travis repository, "more options" -> "settings" -> "environment variables")  
+```heroku auth:token```
+* Add `API_POSTFIX`: `/api/v1` variable to heroku ("settings" -> "reveal config vars") so that backend requests are routed correctly
 
