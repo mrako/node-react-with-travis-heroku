@@ -15,8 +15,7 @@ script:
 - npm run lint --prefix backend/
 - docker-compose -p "dev" build --no-cache
 - docker-compose -p "dev" up -d backend
-- sleep 5
-- docker-compose -p "dev" run backend npm run test
+- npm run test --prefix backend/
 - docker-compose -p "dev" down
 - cd frontend && npm install && npm run build
 - cp src/index.html dist/
