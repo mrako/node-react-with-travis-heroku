@@ -9,6 +9,7 @@ branches:
   - development
 before_install:
   - nvm install node  
+  - sudo service postgresql stop
 script:
 - npm install --prefix backend/
 - npm run lint --prefix backend/
