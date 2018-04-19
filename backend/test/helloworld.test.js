@@ -1,10 +1,19 @@
-const { expect } = require('chai');
-const request = require('request');
+const chai = require('chai');
+const http = require('chai-http');
+
+const { expect } = chai;
+chai.use(http);
+
 
 describe('hello world works', () => {
-  it('should return a message when requesting hello', async () => {
-    request('http://localhost:9000/api/v1/hello/world', (error, response, body) => {
-      expect(body).to.equal('Hello World from backend');
-    });
+  it('should succeed when requesting hello/world', (done) => {
+    chai.request('http://localhost:9000')
+      .get('/api/v1/hello/world')// , (error, response, body) => {
+      .end((err, res) => {
+        expect(err).to.equal(null);
+        expect(res).not.to.equal(null);
+        expect(res).to.have.status(200);
+        done();
+      });
   });
 });
