@@ -1,4 +1,4 @@
-FROM node:8.9.4-alpine
+FROM node:alpine
 
 #RUN apk add --no-cache shadow
 
